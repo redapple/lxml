@@ -34,7 +34,7 @@ test_script:
   # Note that you must use the environment variable %PYTHON% to refer to
   # the interpreter you're using - Appveyor does not do anything special
   # to put the Python evrsion you want to use on PATH.
-  - "build.cmd %PYTHON%\\python.exe -u setup.py clean"
+  #- "build.cmd %PYTHON%\\python.exe -u setup.py clean"
   - "build.cmd %PYTHON%\\python.exe -u setup.py build_ext --inplace"
   - "build.cmd %PYTHON%\\python.exe -u test.py"
 
