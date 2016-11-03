@@ -35,9 +35,9 @@ test_script:
   # the interpreter you're using - Appveyor does not do anything special
   # to put the Python evrsion you want to use on PATH.
   - "SET PATH=C:\\Python%PYTHON%;c:\\Python%PYTHON%\\scripts;%PATH%"
-  #- "build.cmd %PYTHON%\\python.exe -u setup.py clean"
-  - "build.cmd %PYTHON%\\python.exe -u setup.py build --static-deps"
-  - "build.cmd %PYTHON%\\python.exe -u test.py"
+  - "build.cmd %PYTHON%\\python.exe setup.py build --static-deps"
+  - "build.cmd %PYTHON%\\python.exe setup.py bdist_wheel --static-deps"
+  - "build.cmd %PYTHON%\\python.exe setup.py bdist_wininst --static-deps"
 
 after_test:
   # This step builds your wheels.
