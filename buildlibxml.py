@@ -8,7 +8,7 @@ try:
     from urllib import urlretrieve, urlopen
 except ImportError:
     from urllib.parse import urlsplit, urljoin, unquote
-    from urllib.request import urlretrieve, urlopen
+    from urllib.request import urlretrieve, urlopen, urlcleanup
 
 multi_make_options = []
 try:
@@ -60,6 +60,7 @@ def download_and_extract_zlatkovic_binaries(destdir):
         urlretrieve(srcfile, destfile)
         d = unpack_zipfile(destfile, destdir)
         libs[libname] = d
+        urlcleanup()
 
     return libs
 
