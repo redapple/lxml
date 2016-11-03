@@ -139,7 +139,10 @@ def download_and_extract_zlatkovic_binaries(destdir):
         srcfile = urljoin(url, libfn)
         destfile = os.path.join(destdir, libfn)
         print('Retrieving "%s" to "%s"' % (srcfile, destfile))
-        urlretrieve(srcfile, destfile)
+        try:
+            SpecialFtpFancyURLopener().retrieve(srcfile, destfile)
+        except:
+            urlretrieve(srcfile, destfile)
         d = unpack_zipfile(destfile, destdir)
         libs[libname] = d
 
